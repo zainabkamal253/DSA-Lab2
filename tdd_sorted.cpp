@@ -2,9 +2,21 @@
 #include <cassert> // Required for assert()
 using namespace std;
 
-// STUB FUNCTION: Always returns false initially
 bool isSorted(const int* arr, const int size) {
-    return false;
+    // An array of size 0 or 1 is always considered sorted
+    if (size <= 1) {
+        return true;
+    }
+
+    // Compare each element to its next neighbor
+    for (int i = 0; i < size - 1; i++) {
+        // If an element is greater than the next one, the array is unsorted
+        if (arr[i] > arr[i + 1]) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 // ------------------- TEST SUITE ------------------- //
